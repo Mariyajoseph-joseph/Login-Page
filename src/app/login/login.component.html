@@ -1,0 +1,29 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="border p-4" id="loginpage">
+    <div class="row">
+        <div class="col text-center p-3 mb-3 bg-light " >
+            <span class="fs-3">Welcome To ABC Learning Portal</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-2">
+        <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+    <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">Please enter e-mail ID</div>
+    <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">Invalid e-mail ID</div>
+        </div>
+</div>
+    <div class="row" >
+        <div class="col mb-2">
+        <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">Please enter password</div>
+        </div>
+</div>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="d-grid">
+            <button (click)="onLogin()" type="login" [disabled]="loginForm.invalid" class="btn btn-success">Login</button>
+        </div>
+    </div>
+</div>
+</form>
